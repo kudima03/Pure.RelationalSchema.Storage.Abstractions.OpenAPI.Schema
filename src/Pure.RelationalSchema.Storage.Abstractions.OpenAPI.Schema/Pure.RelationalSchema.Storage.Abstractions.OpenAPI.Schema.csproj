@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <IsAotCompatible>true</IsAotCompatible>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PackageId>Pure.RelationalSchema.Storage.Abstractions.OpenAPI.Schema</PackageId>
+    <RootNamespace>Pure.RelationalSchema.Storage.Abstractions.OpenAPI.Schema</RootNamespace>
+    <AssemblyName>Pure.RelationalSchema.Storage.Abstractions.OpenAPI.Schema</AssemblyName>
+    <Authors>Dmitry Kurochkin</Authors>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/kudima03/Pure.RelationalSchema.Storage.Abstractions.OpenAPI.Schema</PackageProjectUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.*" />
+  </ItemGroup>
+</Project>
