@@ -4,7 +4,10 @@ namespace Pure.RelationalSchema.Storage.Abstractions.OpenAPI.Schema.Tests;
 
 public sealed record StorageDataDocumentTransformerTests
 {
-    private static OpenApiDocument BuildDocumentWithSchema(string name, JsonSchemaType type)
+    private static OpenApiDocument BuildDocumentWithSchema(
+        string name,
+        JsonSchemaType type
+    )
     {
         return new OpenApiDocument
         {
@@ -18,13 +21,18 @@ public sealed record StorageDataDocumentTransformerTests
         };
     }
 
-    private static IOpenApiSchema Schema(OpenApiDocument document, string name) =>
-        document.Components!.Schemas![name];
+    private static IOpenApiSchema Schema(OpenApiDocument document, string name)
+    {
+        return document.Components!.Schemas![name];
+    }
 
     [Fact]
     public async Task ICellIsReplacedWithObjectHavingStringValueProperty()
     {
-        OpenApiDocument document = BuildDocumentWithSchema("ICell", JsonSchemaType.Object);
+        OpenApiDocument document = BuildDocumentWithSchema(
+            "ICell",
+            JsonSchemaType.Object
+        );
 
         await new StorageDataDocumentTransformer().TransformAsync(
             document,
@@ -52,8 +60,8 @@ public sealed record StorageDataDocumentTransformerTests
         Assert.Equal(JsonSchemaType.Array, schema.Type);
         Assert.NotNull(schema.Items);
         Assert.Equal(JsonSchemaType.Object, schema.Items!.Type);
-        Assert.IsType<OpenApiSchemaReference>(schema.Items!.Properties!["Column"]);
-        Assert.IsType<OpenApiSchemaReference>(schema.Items!.Properties!["Cell"]);
+        _ = Assert.IsType<OpenApiSchemaReference>(schema.Items!.Properties!["Column"]);
+        _ = Assert.IsType<OpenApiSchemaReference>(schema.Items!.Properties!["Cell"]);
     }
 
     [Fact]
@@ -72,9 +80,9 @@ public sealed record StorageDataDocumentTransformerTests
 
         IOpenApiSchema schema = Schema(document, "IStoredTableDataSet");
         Assert.Equal(JsonSchemaType.Object, schema.Type);
-        Assert.IsType<OpenApiSchemaReference>(schema.Properties!["TableSchema"]);
+        _ = Assert.IsType<OpenApiSchemaReference>(schema.Properties!["TableSchema"]);
         Assert.Equal(JsonSchemaType.Array, schema.Properties!["Rows"].Type);
-        Assert.IsType<OpenApiSchemaReference>(schema.Properties!["Rows"].Items!);
+        _ = Assert.IsType<OpenApiSchemaReference>(schema.Properties!["Rows"].Items!);
     }
 
     [Fact]
@@ -93,15 +101,18 @@ public sealed record StorageDataDocumentTransformerTests
 
         IOpenApiSchema schema = Schema(document, "IStoredSchemaDataSet");
         Assert.Equal(JsonSchemaType.Object, schema.Type);
-        Assert.IsType<OpenApiSchemaReference>(schema.Properties!["Schema"]);
+        _ = Assert.IsType<OpenApiSchemaReference>(schema.Properties!["Schema"]);
         Assert.Equal(JsonSchemaType.Array, schema.Properties!["Datasets"].Type);
-        Assert.IsType<OpenApiSchemaReference>(schema.Properties!["Datasets"].Items!);
+        _ = Assert.IsType<OpenApiSchemaReference>(schema.Properties!["Datasets"].Items!);
     }
 
     [Fact]
     public async Task UnrelatedSchemaIsNotModified()
     {
-        OpenApiDocument document = BuildDocumentWithSchema("MyCustomType", JsonSchemaType.Object);
+        OpenApiDocument document = BuildDocumentWithSchema(
+            "MyCustomType",
+            JsonSchemaType.Object
+        );
 
         await new StorageDataDocumentTransformer().TransformAsync(
             document,
