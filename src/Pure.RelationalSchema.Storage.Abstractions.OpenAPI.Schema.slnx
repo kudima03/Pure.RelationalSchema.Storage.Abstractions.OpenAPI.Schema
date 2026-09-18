@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+  </Folder>
+  <Folder Name="/Tests/">
+    <Project Path="Tests/Pure.RelationalSchema.Storage.Abstractions.OpenAPI.Schema.Tests/Pure.RelationalSchema.Storage.Abstractions.OpenAPI.Schema.Tests.csproj" />
+  </Folder>
+  <Project Path="Pure.RelationalSchema.Storage.Abstractions.OpenAPI.Schema/Pure.RelationalSchema.Storage.Abstractions.OpenAPI.Schema.csproj" />
+</Solution>
