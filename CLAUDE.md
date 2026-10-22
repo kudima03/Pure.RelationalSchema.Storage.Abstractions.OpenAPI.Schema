@@ -27,7 +27,7 @@ This is a **single-class NuGet library** — one `sealed class`, one dependency,
 
 **AOT:** `IsAotCompatible = true` — keep the class free of reflection-based patterns.
 
-**Package validation:** `EnablePackageValidation = true` with `PackageValidationBaselineVersion = 0.1.0-preview.0.1.0`. Breaking API changes fail the build.
+**Package validation:** `EnablePackageValidation = true` with `PackageValidationBaselineVersion = 0.1.0-preview.0.3.0`. Breaking API changes fail the build.
 
 **Publishing:** triggered by pushing a semver tag (e.g. `1.0.0`). The tag becomes the `PackageVersion`. The workflow publishes to both NuGet.org and GitHub Packages.
 
