@@ -6,6 +6,12 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [0.1.0-preview.0.4.0] — 2026-11-11
+
+### Added
+
+- .NET 11 support: the package now targets net10.0 and net11.0.
+
 ## [0.1.0-preview.0.3.1] — 2026-10-31
 
 - Maintenance release: dependency and build updates.
