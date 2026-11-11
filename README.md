@@ -30,6 +30,7 @@ ASP.NET Core's built-in OpenAPI reflection cannot resolve the true JSON shape of
 ## Target Frameworks
 
 - .NET 10
+- .NET 11
 
 ## Installation
 

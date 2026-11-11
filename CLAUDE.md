@@ -23,7 +23,7 @@ This is a **single-class NuGet library** — one `sealed class`, one dependency,
 
 `StorageDataDocumentTransformer` implements `IOpenApiDocumentTransformer` (from `Microsoft.AspNetCore.OpenApi`). It holds a static dictionary of four hardcoded `OpenApiSchema` entries keyed by component name (`ICell`, `IRow`, `IStoredTableDataSet`, `IStoredSchemaDataSet`). In `TransformAsync` it overwrites matching entries in `document.Components.Schemas` with those corrected schemas. The transformer is stateless and AOT-compatible.
 
-**Multi-targeting:** net10.0 only.
+**Multi-targeting:** net10.0 and net11.0. The test project targets net11.0.
 
 **AOT:** `IsAotCompatible = true` — keep the class free of reflection-based patterns.
 
